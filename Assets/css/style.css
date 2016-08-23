@@ -22,8 +22,25 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  margin-bottom: 30px;
 }
 
 #attack{
   text-align:center;
 }
+
+.topPart {
+  margin-top: 10px
+}
+
+.play{
+  left-margin: 100px;
+}
+
+.footer{
+  bottom: 0;
+  position:absolute;
+  color:white;
+
+}
+

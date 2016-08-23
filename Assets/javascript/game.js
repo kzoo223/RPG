@@ -1,4 +1,28 @@
 $(document).ready(function(){
+
+	
+var themeMusic = $("#sound1")
+themeMusic.volume =
+
+$('.play').click(function(){
+    var $this = $(this);
+    
+    // starting audio
+    var audioID = "sound" + $(this).attr('id');
+    
+    $this.toggleClass('active');
+    if($this.hasClass('active')){
+        $this.text('pause');    
+        $("#" + audioID).trigger('play');
+    } else {
+        $this.text('play');
+        $("#" + audioID).trigger('pause');
+    }
+});
+
+
+
+
 //variables
 
 //characters
@@ -31,12 +55,13 @@ var classes = {
 
 	$("#logo").append('<img id = "logo" src = "assets/images/logo.jpg">');
 
+	
 
 //create character boxes
-	$("#priestClass").append('<img class = "character" data-selection="false" data-character="priest" src = "assets/images/priest.jpg">');
-	$("#knightClass").append('<img class = "character" data-selection="false" data-character="knight" src = "assets/images/knight.jpg">');
-	$("#sorcClass").append('<img class = "character" data-selection="false" data-character="sorc" src = "assets/images/sorc.jpg">');
-	$("#pyroClass").append('<img class = "character" data-selection="false" data-character="pyro" src = "assets/images/pyro.jpg">');
+	$("#priestClass").append('<img class = "character" data-selection="false" data-character="priest" src = "assets/images/priest.png">');
+	$("#knightClass").append('<img class = "character" data-selection="false" data-character="knight" src = "assets/images/knight.png">');
+	$("#sorcClass").append('<img class = "character" data-selection="false" data-character="sorc" src = "assets/images/sorc.png">');
+	$("#pyroClass").append('<img class = "character" data-selection="false" data-character="pyro" src = "assets/images/pyro.png">');
 
 
 //select character & select enemy	
@@ -83,7 +108,7 @@ $(".character").on("click", function (){
 		else if (selection && yourChoice === 2){
 			$("#attack").on("click", function(){
 				yourHP = yourHP - CounterAttack
-				
+
 			});
 
 
