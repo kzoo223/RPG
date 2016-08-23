@@ -13,7 +13,7 @@
 .stats{
   text-align: center;
   color:white;
-  
+
 }
 
 body {
@@ -22,4 +22,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+}
+
+#attack{
+  text-align:center;
 }
