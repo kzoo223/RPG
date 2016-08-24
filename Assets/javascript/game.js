@@ -71,6 +71,7 @@ var enemyHp
 var yourAttack
 var counterAttack
 var attackButton
+var enemyCounter = 3;
 //on character click
 $(".character").on("click", function (){
 	var selection = $(this).data("selection");
@@ -84,6 +85,7 @@ $(".character").on("click", function (){
 			var friendly = $(this).data('character');
 			var attributes = classes[friendly]
 			$("#yourHealth").append("Your HP: " + attributes.hp)
+      $("#chooser").html("Choose an Enemy!")
       yourHp = attributes.hp
 			yourAttack = attributes.atk
 		}
@@ -91,12 +93,13 @@ $(".character").on("click", function (){
 		//enemy selection
 		else if(selection && yourChoice === 1){
 			//appends selection to enemy div + displays enemy hp
-			$("#enemySelected").append($(this));
+      $("#chooser").remove();
+      $("#enemySelected").append($(this));
 			yourChoice++;
 			$(document).removeClass('character');
 			var enemy = $(this).data('character');
 			var attributes = classes[enemy];
-			$("#enemyHealth").append("Enemy HP: " + attributes.hp)
+			$("#enemyHealth").html("Enemy HP: " + attributes.hp)
       enemyHp = attributes.hp
 			//add attack button after selecting enemy
 			var atk = $('<button type="button" class="btn btn-secondary" id = "attack">');
@@ -109,11 +112,23 @@ $(".character").on("click", function (){
 //attack button
 var newAttack = 0
 $(document).on("click", "#attack", function(){
-    yourHp = yourHp - counterAttack;
-    enemyHp = enemyHp- yourAttack;
     newAttack = newAttack + yourAttack
-    console.log(yourAttack)
-    console.log(counterAttack)
+    yourHp = yourHp - counterAttack;
+    enemyHp = enemyHp- newAttack;
+    $("#yourHealth").html("Your HP: " + yourHp)
+    $("#enemyHealth").html("Enemy HP: " + enemyHp)
+    $("#status").html("You attack the enemy for: " + newAttack + "damage!")
+    console.log("enemy attack" + counterAttack)
+
+ if(enemyHp<=0){
+      $("#action").empty()
+      $("#enemySelected").empty()
+      $("#status").html("You defeated your enemy!")
+      $(document).addClass('character')
+      yourChoice = 1;
+      enemyCounter--;
+    }
+
 });
 
 });
