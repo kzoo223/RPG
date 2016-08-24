@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-	
+//music
 var themeMusic = $("#sound1")
 themeMusic.volume =
 
@@ -21,11 +21,7 @@ $('.play').click(function(){
 });
 
 
-
-
-//variables
-
-//characters
+//character objects
 var classes = {
 
 	priest:{
@@ -53,21 +49,25 @@ var classes = {
 	}
 }
 
-	$("#logo").append('<img id = "logo" src = "assets/images/logo.jpg">');
+
+
+$("#logo").append('<img id = "logo" src = "assets/images/logo.jpg">');
 
 	
 
 //create character boxes
-	$("#priestClass").append('<img class = "character" data-selection="false" data-character="priest" src = "assets/images/priest.png">');
-	$("#knightClass").append('<img class = "character" data-selection="false" data-character="knight" src = "assets/images/knight.png">');
-	$("#sorcClass").append('<img class = "character" data-selection="false" data-character="sorc" src = "assets/images/sorc.png">');
-	$("#pyroClass").append('<img class = "character" data-selection="false" data-character="pyro" src = "assets/images/pyro.png">');
+
+$("#priestClass").append('<img class = "character" data-selection="false" data-character="priest" src = "assets/images/priest.png">');
+$("#knightClass").append('<img class = "character" data-selection="false" data-character="knight" src = "assets/images/knight.png">');
+$("#sorcClass").append('<img class = "character" data-selection="false" data-character="sorc" src = "assets/images/sorc.png">');
+$("#pyroClass").append('<img class = "character" data-selection="false" data-character="pyro" src = "assets/images/pyro.png">');
+
 
 
 //select character & select enemy	
 var yourChoice = 0;
-var yourHP
-var enemyHP
+var yourHp
+var enemyHp
 var yourAttack
 var counterAttack
 var attackButton
@@ -83,7 +83,8 @@ $(".character").on("click", function (){
 			yourChoice++
 			var friendly = $(this).data('character');
 			var attributes = classes[friendly]
-			yourHP = $("#yourHealth").append("Your HP: " + attributes.hp)
+			$("#yourHealth").append("Your HP: " + attributes.hp)
+      yourHp = attributes.hp
 			yourAttack = attributes.atk
 		}
 
@@ -95,26 +96,28 @@ $(".character").on("click", function (){
 			$(document).removeClass('character');
 			var enemy = $(this).data('character');
 			var attributes = classes[enemy];
-			enemyHP = $("#enemyHealth").append("Enemy HP: " + attributes.hp)
+			$("#enemyHealth").append("Enemy HP: " + attributes.hp)
+      enemyHp = attributes.hp
 			//add attack button after selecting enemy
 			var atk = $('<button type="button" class="btn btn-secondary" id = "attack">');
 			atk.text("Attack");
 			$("#action").html(atk);
-			attackButton=atk
 			counterAttack=attributes.atk
 		}
 
 	//attack button
-		else if (selection && yourChoice === 2){
-			$("#attack").on("click", function(){
-				yourHP = yourHP - CounterAttack
+	$(document).on("click", "#attack", function(){
+    yourHp = yourHp - counterAttack;
+    enemyHp = enemyHp- yourAttack;
+    yourAttack = yourAttack + yourAttack
+    console.log(yourHp)
+    console.log(enemyHp)
 
-			});
 
+      });
 
-		}
-					
-	
-		
 	});
+
+
+
 });
