@@ -104,20 +104,16 @@ $(".character").on("click", function (){
 			$("#action").html(atk);
 			counterAttack=attributes.atk
 		}
-
-	//attack button
-	$(document).on("click", "#attack", function(){
-    yourHp = yourHp - counterAttack;
-    enemyHp = enemyHp- yourAttack;
-    yourAttack = yourAttack + yourAttack
-    console.log(yourHp)
-    console.log(enemyHp)
-
-
-      });
-
 	});
 
-
+//attack button
+var newAttack = 0
+$(document).on("click", "#attack", function(){
+    yourHp = yourHp - counterAttack;
+    enemyHp = enemyHp- yourAttack;
+    newAttack = newAttack + yourAttack
+    console.log(yourAttack)
+    console.log(counterAttack)
+});
 
 });
