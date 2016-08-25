@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+
+var backgroundTheme = $("#Theme")
+backgroundTheme.volume = 0.2;
+
 //music player
 $("document").ready(function(){                    
         $("#playButton").click(function() {
@@ -71,6 +75,8 @@ var enemyCounter = 3;
 $(".character").on("click", function (){
 	var selection = $(this).data("selection");
 	selection = true;
+  var selectAudio = new Audio("assets/sounds/bonfire.mp3");
+  selectAudio.play();
 
 		//character selection
 		if (selection && yourChoice === 0){
@@ -114,8 +120,9 @@ $(document).on("click", "#attack", function(){
     $("#enemyHealth").html("Enemy HP: " + enemyHp)
     $("#status").html("You attack the enemy for: " + newAttack + "damage!")
     console.log(counterAttack)
+
     
-  //defeating enemy
+//defeating enemy
   if(enemyHp<=0){
       $("#action").empty()
       $("#enemySelected").empty()
@@ -125,17 +132,32 @@ $(document).on("click", "#attack", function(){
       enemyCounter--;
       console.log(enemyCounter)
     }
-  //losing
-  if (yourHp <= 0){
-    alert("you Lose!");
 
+//losing
+  if (yourHp <= 0){
+    $("#logo").empty();
+    $("#action").empty()
+    $("#characterArea").empty();
+    $(".stats").empty();
+    $(".charaSelect").empty()
+    $("#status").html("<img src = 'assets/images/died.png'>");
+    $("#Theme")[0].pause(); 
+    var selectAudio = new Audio("assets/sounds/death.mp3");
+    selectAudio.play();
   }
 
   //winning
   if (enemyCounter == 0){
-      alert("you win!");
-
-   }
+    $("#logo").empty();
+    $("#action").empty()
+    $("#characterArea").empty();
+    $(".stats").empty();
+    $(".charaSelect").empty()
+    $("#status").html("<img src = 'assets/images/victory.png'>");
+    $("#Theme")[0].pause(); 
+    var selectAudio = new Audio("assets/sounds/win.mp3");
+    selectAudio.play();
+  }
 
 
 });

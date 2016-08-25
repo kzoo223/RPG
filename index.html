@@ -4,11 +4,12 @@
 	<title>Dark Souls RPG</title>
 	<script src="http://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
 
+  <script src = "assets/javascript/game.js"></script>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 	
-	<script src = "assets/javascript/game.js"></script>
 	<link rel = "stylesheet" type= "text/css" href = "assets/css/style.css">
 
 </head>
@@ -29,7 +30,7 @@
     <!-- initial selection-->
 		<div class = "row">
 			<div class = "col-lg-8 col-lg-offset-2"> 
-				<div class = "row">
+				<div class = "row" id = "characterArea">
 					<div class = "col-lg-3" id="priestClass"></div>
 					<div class = "col-lg-3" id = "knightClass"> </div>
 					<div class = "col-lg-3" id = "sorcClass"> </div>
@@ -40,16 +41,16 @@
     <br>
     <br>
     
-    <div class = "row">
+    <div class = "row" id = "statusArea">
         <div class = "col-lg-3 stats" id = "yourHealth"></div>
         <div class = "col-lg-6" id = "status"><div id = chooser></div></div>
         <div class = "col-lg-3 stats" id = "enemyHealth"></div>
     </div>
 
     <div class = "row">
-      <div class = "col-lg-3" id = "yourChar"></div> 
+      <div class = "col-lg-3 charaSelect" id = "yourChar"></div> 
       <div class = "col-lg-6" id = "action"></div>
-      <div class = "col-lg-3" id = "enemySelected"></div>
+      <div class = "col-lg-3 charaSelect" id = "enemySelected"></div>
     </div>
           
     
