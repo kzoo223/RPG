@@ -23,15 +23,15 @@ $("document").ready(function(){
 
 //reset button **not working**
 //   reset.on("click", function(){
-//   $("#logo").html('<img id = "logo" src = "assets/images/logo.png">');
+//   $("#logo").html('<img id = "logo" src = "images/logo.png">');
 //   $("#characterArea").append("<div class = 'col-lg-3' id='priestClass'></div>")
 //   $("#characterArea").append("<div class = 'col-lg-3' id='knightClass'></div>")
 //   $("#characterArea").append("<div class = 'col-lg-3' id='sorcClass'></div>")
 //   $("#characterArea").append("<div class = 'col-lg-3' id='pyroClass'></div>")
-//   $("#priestClass").html('<img class = "character" data-selection="false" data-character="priest" src = "assets/images/priest.png">');
-//   $("#knightClass").html('<img class = "character" data-selection="false" data-character="knight" src = "assets/images/knight.png">');
-//   $("#sorcClass").html('<img class = "character" data-selection="false" data-character="sorc" src = "assets/images/sorc.png">');
-//   $("#pyroClass").html('<img class = "character" data-selection="false" data-character="pyro" src = "assets/images/pyro.png">');
+//   $("#priestClass").html('<img class = "character" data-selection="false" data-character="priest" src = "images/priest.png">');
+//   $("#knightClass").html('<img class = "character" data-selection="false" data-character="knight" src = "images/knight.png">');
+//   $("#sorcClass").html('<img class = "character" data-selection="false" data-character="sorc" src = "images/sorc.png">');
+//   $("#pyroClass").html('<img class = "character" data-selection="false" data-character="pyro" src = "images/pyro.png">');
 //   yourChoice === 0;
 //   enemyCounter === 3;
 //   $("#status").empty();
@@ -72,16 +72,16 @@ var classes = {
 
 
 
-$("#logo").append('<img id = "logo" src = "assets/images/logo.png">');
+$("#logo").append('<img id = "logo" src = "images/logo.png">');
 
 	
 
 //create character boxes
 
-$("#priestClass").append('<center><img class = "character" data-selection="false" data-character="priest" src = "assets/images/priest.png"></center>');
-$("#knightClass").append('<center><img class = "character" data-selection="false" data-character="knight" src = "assets/images/knight.png"></center>');
-$("#sorcClass").append('<center><img class = "character" data-selection="false" data-character="sorc" src = "assets/images/sorc.png"></center>');
-$("#pyroClass").append('<center><img class = "character" data-selection="false" data-character="pyro" src = "assets/images/pyro.png"></center>');
+$("#priestClass").append('<center><img class = "character" data-selection="false" data-character="priest" src = "images/priest.png"></center>');
+$("#knightClass").append('<center><img class = "character" data-selection="false" data-character="knight" src = "images/knight.png"></center>');
+$("#sorcClass").append('<center><img class = "character" data-selection="false" data-character="sorc" src = "images/sorc.png"></center>');
+$("#pyroClass").append('<center><img class = "character" data-selection="false" data-character="pyro" src = "images/pyro.png"></center>');
 
 
 
@@ -117,7 +117,7 @@ function fadingIn(){
 $(".character").on("click", function (){
 	var selection = $(this).data("selection");
 	selection = true;
-  var selectAudio = new Audio("assets/sounds/bonfire.mp3");
+  var selectAudio = new Audio("sounds/bonfire.mp3");
   selectAudio.play();
   fadingOut();
   fadingIn();
@@ -170,7 +170,7 @@ $(document).on("click", "#attack", function(){
     $("#enemyHealth").html("Enemy HP: " + enemyHp)
     $("#status").html("You attack the enemy for: " + newAttack + "damage!")
     console.log(counterAttack)
-    var selectAudio = new Audio("assets/sounds/swords.mp3");
+    var selectAudio = new Audio("sounds/swords.mp3");
     selectAudio.play();
             
     $("#yourChar").animate({left:"80px"}, "fast");
@@ -192,7 +192,7 @@ $(document).on("click", "#attack", function(){
       $(document).addClass('character')
       yourChoice = 1;
       enemyCounter--;
-      var selectAudio = new Audio("assets/sounds/deadEnemy.mp3");
+      var selectAudio = new Audio("sounds/deadEnemy.mp3");
       selectAudio.play();      
       $("#characterArea").show();
       console.log(enemyCounter)
@@ -205,9 +205,9 @@ $(document).on("click", "#attack", function(){
     $("#characterArea").empty();
     $(".stats").empty();
     $(".charaSelect").empty()
-    $("#logo").html("<center><img src = 'assets/images/died.png'></center>");
+    $("#logo").html("<center><img src = 'images/died.png'></center>");
     $("#Theme")[0].pause(); 
-    var selectAudio = new Audio("assets/sounds/death.mp3");
+    var selectAudio = new Audio("sounds/death.mp3");
     selectAudio.play();
     $(document).addClass('character');
     $("#status").html(reset)
@@ -221,9 +221,9 @@ $(document).on("click", "#attack", function(){
     $("#characterArea").empty();
     $(".stats").empty();
     $(".charaSelect").empty()
-    $("#logo").html("<center><img src = 'assets/images/victory.png'></center>");
+    $("#logo").html("<center><img src = 'images/victory.png'></center>");
     $("#Theme")[0].pause(); 
-    var selectAudio = new Audio("assets/sounds/win.mp3");
+    var selectAudio = new Audio("sounds/win.mp3");
     selectAudio.play();
     $(document).addClass('character');
     $("#status").html(reset)
