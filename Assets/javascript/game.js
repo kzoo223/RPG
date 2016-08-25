@@ -1,25 +1,20 @@
 $(document).ready(function(){
 
-//music
-var themeMusic = $("#sound1")
-themeMusic.volume =
-
-$('.play').click(function(){
-    var $this = $(this);
-    
-    // starting audio
-    var audioID = "sound" + $(this).attr('id');
-    
-    $this.toggleClass('active');
-    if($this.hasClass('active')){
-        $this.text('pause');    
-        $("#" + audioID).trigger('play');
-    } else {
-        $this.text('play');
-        $("#" + audioID).trigger('pause');
-    }
+//music player
+$("document").ready(function(){                    
+        $("#playButton").click(function() {
+                    if (!$("#Theme")[0].paused)
+                    {
+                        $("#Theme")[0].pause();           
+                        
+                    }
+                    else
+                        {
+                            $("#Theme")[0].play();           
+                            
+                        }
+        });
 });
-
 
 //character objects
 var classes = {
@@ -45,7 +40,7 @@ var classes = {
 	sorc:{
 		hp: 115,
 		atk: 10,
-		counter: 8
+		counter: 15
 	}
 }
 
@@ -105,7 +100,7 @@ $(".character").on("click", function (){
 			var atk = $('<button type="button" class="btn btn-secondary" id = "attack">');
 			atk.text("Attack");
 			$("#action").html(atk);
-			counterAttack=attributes.atk
+			counterAttack=attributes.counter
 		}
 	});
 
@@ -118,16 +113,30 @@ $(document).on("click", "#attack", function(){
     $("#yourHealth").html("Your HP: " + yourHp)
     $("#enemyHealth").html("Enemy HP: " + enemyHp)
     $("#status").html("You attack the enemy for: " + newAttack + "damage!")
-    console.log("enemy attack" + counterAttack)
-
- if(enemyHp<=0){
+    console.log(counterAttack)
+    
+  //defeating enemy
+  if(enemyHp<=0){
       $("#action").empty()
       $("#enemySelected").empty()
       $("#status").html("You defeated your enemy!")
       $(document).addClass('character')
       yourChoice = 1;
       enemyCounter--;
+      console.log(enemyCounter)
     }
+  //losing
+  if (yourHp <= 0){
+    alert("you Lose!");
+
+  }
+
+  //winning
+  if (enemyCounter == 0){
+      alert("you win!");
+
+   }
+
 
 });
 
